@@ -1,6 +1,7 @@
 import logging
 import asyncio
-from telegram import Update, ReplyKeyboardMarkup
+from flask import flask, render_template
+from  telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
 from telegram.ext import CallbackContext
 
@@ -236,5 +237,11 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+app = flask(__name__)
+
+@app.route("/")
+def index():
+    return render_template("index.html")
 
 # Updated test line
