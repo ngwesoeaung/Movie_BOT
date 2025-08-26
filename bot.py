@@ -1,9 +1,9 @@
 import logging
+import asyncio
 import asyncio 
 from flask import flask, render_template
 from  telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
-from telegram.ext import CallbackContext
 
 # Logging Setup
 logging.basicConfig(
@@ -235,13 +235,13 @@ def main():
     application.run_polling()
 
 
-if __name__ == "__main__":
-    main()
+from flask import Flask
 
-app = flask(__name__)
+app = Flask(__name__)
 
 @app.route("/")
-def index():
-    return render_template("index.html")
+def home():
+    return "Hello from Railway + GitHub!"
 
-# Updated test line
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
