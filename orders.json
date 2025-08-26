@@ -1,0 +1,37 @@
+{
+    "1": {
+        "user_id": 1921230090,
+        "1xbet_id": "Yusis",
+        "status": "rejected"
+    },
+    "2": {
+        "user_id": 1921230090,
+        "1xbet_id": "Rrnedj",
+        "status": "rejected"
+    },
+    "3": {
+        "user_id": 1921230090,
+        "1xbet_id": "78886",
+        "status": "approved"
+    },
+    "4": {
+        "user_id": 1921230090,
+        "1xbet_id": "Tgggg",
+        "status": "rejected"
+    },
+    "5": {
+        "user_id": 5992304493,
+        "1xbet_id": "556666",
+        "status": "rejected"
+    },
+    "6": {
+        "user_id": 5992304493,
+        "1xbet_id": "899",
+        "status": "approved"
+    },
+    "7": {
+        "user_id": 5992304493,
+        "1xbet_id": "Gshhsh",
+        "status": "approved"
+    }
+}
