@@ -3,6 +3,19 @@ import asyncio
 from telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
 from telegram.ext import CallbackContext
+from flask import Flask
+import os
+port = int(os.environ.get("PORT", 8000))
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Hello Railway!"
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    app.run(host="0.0.0.0", port=port)
+
 
 # Logging Setup
 logging.basicConfig(
@@ -231,18 +244,5 @@ def main():
         )
 
     print("Bot is running...")
-    application.run_polling()
-
-
-if __name__ == "__main__":
-    main()
-
-from flask import Flask
-app = Flask(__name__)
-
-@app.route("/")
-def home():
-    return "Hello Railway Web App!"
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8000)
+    application.run_polling(host="0.0.0.0", port=port)
+        
