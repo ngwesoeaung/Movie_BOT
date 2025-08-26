@@ -224,25 +224,21 @@ async def buy_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         reply_markup=InlineKeyboardMarkup(keyboard)
     )
 
-# --- Handle Category Selection ---
-async def handle_category_selection(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    query = update.callback_query
-    await query.answer()
+ elif query.data.startswith('buy_'):
+        # Handle category selection
+        category = query.data.split('_')[1]
+        
+        if category == "1xbet":
+            user_id = update.effective_user.id
+            user_order_data[user_id] = {"category": "1xbet", "step": "enter_id"}
 
-    if query.data == "buy_1xbet":
-        # Prompt user to input 1xBet ID
-        user_id = update.effective_user.id
-        user_order_data[user_id] = {"category": "1xbet", "step": "enter_id"}
+            text = (
+                "🛒 1xBet Unit ထည့်ရန်:\n"
+                "➤ 1xBet ID ကို ပေးပိုပါ။\n\n"
+                "💰 အနည်းဆုံး 500 MMK မှ စ၍ ထည့်ပေးပါရန်။"
+            )
 
-        text = (
-            "🛒 1xBet Unit ထည့်ရန်:\n"
-            "➤ 1xBet ID ကို ပေးပိုပါ။\n\n"
-            "💰 အနည်းဆုံး 500 MMK မှ စ၍ ထည့်ပေးပါရန်။"
-        )
-
-        await query.edit_message_text(text)
-        return
-
+            await query.edit_message_text(text)
 
 # --- Handle User Input for 1xBet ID ---
 async def handle_user_input(update: Update, context: ContextTypes.DEFAULT_TYPE):
