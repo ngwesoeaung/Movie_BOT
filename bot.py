@@ -4,6 +4,8 @@ from telegram import Update, ReplyKeyboardMarkup
 from telegram.ext import Application, CommandHandler, ContextTypes, MessageHandler, filters
 from telegram.ext import CallbackContext
 
+
+
 # Logging Setup
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
@@ -232,6 +234,7 @@ def main():
 
     print("Bot is running...")
     application.run_polling()
+
 
 
 if __name__ == "__main__":
